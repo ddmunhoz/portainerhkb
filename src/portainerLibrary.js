@@ -1,6 +1,11 @@
+/** 
+ *  Homekit Portainer Bridge
+ *  
+ *  by Diego Munhoz - munhozdiego@live.com - https://diegomunhoz.com
+ */
+
 const config = require('../configs/config-dockerBridge.json');
 const axios = require('axios').default;
-const querystring = require('querystring');
 let token = null;
 
 function auth() {

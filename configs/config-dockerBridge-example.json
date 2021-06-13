@@ -1,0 +1,21 @@
+{
+  "bridge": {
+    "name": "Name of this Bridge",
+    "pincode": "Pin code for the bridge MUST FOLLOW the format: 111-11-111",
+    "mac": "Mac Address iex.: XX:XX:XX:XX:XX:XX",
+    "port": "Bridge Port iex.: 45033"
+  },
+  "portainer": {
+    "fqdn": "Portainer url including protocol iex.: https://portainer.local",
+    "port": "Portainer Port 443",
+    "username": "Username",
+    "password": "Password",
+    "cleanupInterval":"OPTIONAL, default 300secs: Integer for the bridge to remove deleted containers. iex.: 30",
+    "emiterInterval":"OPTIONAL, default 60secs  :  for the bridge to check container status iex.: 60 ",
+    "exclude": [
+      {
+        "name": "OPTIONAL, Used to filter which containers should be removed from the bridge. Remove the enttire exclude key to disable it"
+      }
+    ]
+  }
+}

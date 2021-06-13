@@ -11,7 +11,7 @@ build_job:
   stage: build
   script:
     - whoami
-    - docker build --tag dockerhkb:1.0 .
+    - docker build --tag portainerhkb:2.0 .
 
   tags:
     - *RUNNER
@@ -39,7 +39,7 @@ deploy_job_dev:
       -v /payload/dockerhkb/accessories:/app/persist
       --network host
       --dns 10.0.0.9
-      dockerhkb:1.0
+      portainerhkb:2.0
   
   dependencies:
     - cleanup_job

@@ -2,4 +2,4 @@ docker run -dt --name YOUR_CONTAINER_NAME \
 -v /path_on_your_server/YOUR_CONTAINER_NAME/config-SynoNasBridge.json:/tmp/SynoNasHKB/configs/config-SynoRouterBridge.json \
 -v /path_on_your_server/YOUR_CONTAINER_NAME/accessories:/persist \
 --network host \
-synorouterhkb:1.0
+portainerhkb:1.0

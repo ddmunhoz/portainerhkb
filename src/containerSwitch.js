@@ -1,12 +1,11 @@
 /** 
- *  Synology RT2600ac and MR2200ac router companion
+ *  Homekit Portainer Bridge
  *  
  *  by Diego Munhoz - munhozdiego@live.com - https://diegomunhoz.com
  */
 const hap = require('hap-nodejs');
 const config = require('../configs/config-dockerBridge.json');
 const synoLibrary = require('./portainerLibrary');
-const querystring = require('querystring');
 const Accessory = hap.Accessory;
 const Characteristic = hap.Characteristic;
 const Service = hap.Service;

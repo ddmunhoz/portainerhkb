@@ -1,8 +1,8 @@
 {
-  "name": "DockerCompanion",
+  "name": "Portainer HomeKit bridge",
   "version": "1.0.0",
-  "description": "A homekit companion for Docker",
-  "main": "src/synoRouterBridge.js",
+  "description": "A homekit companion for Portainer",
+  "main": "src/dockerBridge.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
