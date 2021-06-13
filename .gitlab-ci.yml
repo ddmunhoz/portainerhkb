@@ -1,0 +1,48 @@
+.common:
+  tags:
+    - &RUNNER dev-runner
+    
+stages:
+    - build
+    - cleanup
+    - deploy
+
+build_job:
+  stage: build
+  script:
+    - whoami
+    - docker build --tag dockerhkb:1.0 .
+
+  tags:
+    - *RUNNER
+
+cleanup_job:
+  stage: cleanup
+  script:
+    - docker kill Docker-HKB || true
+    - docker rm Docker-HKB   || true
+
+  dependencies:
+    - build_job
+
+  tags:
+    - *RUNNER
+
+deploy_job_dev:
+  stage: deploy
+  script:
+    - whoami
+    - >
+      docker run --restart always -dt --name Docker-HKB 
+      -v /etc/localtime:/etc/localtime 
+      -v /payload/dockerhkb/configs/config-DockerBridge.json:/configs/config-DockerBridge.json
+      -v /payload/dockerhkb/accessories:/app/persist
+      --network host
+      --dns 10.0.0.9
+      dockerhkb:1.0
+  
+  dependencies:
+    - cleanup_job
+
+  tags:
+    - *RUNNER
