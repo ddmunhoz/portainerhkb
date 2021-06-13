@@ -1,4 +1,4 @@
-# Docker  HomeKit Bridge
+# Portainer  HomeKit Bridge
 
 This project aims to provide a fully functional Portainer Docker Bridge that allows users to stop/start docker container
 through using Portainer API.
@@ -23,16 +23,16 @@ in the container.
 
 Docker launch example using dockerhub image:
 
-'''
+```
 docker run -dt --name Portainer-HomeKitBridge \
--v /path_on_your_server/YOUR_CONTAINER_NAME/config-SynoNasBridge.json:/configs/config-DockerBridge.json \
+-v /path_on_your_server/YOUR_CONTAINER_NAME/config-dockerBridge.json:/configs/config-dockerBridge.json \
 -v /path_on_your_server/YOUR_CONTAINER_NAME/accessories:/persist \
 --network host \
- munhozdiego/portainerhkb:latest
-'''
+munhozdiego/portainerhkb:latest
+```
 
 ***Config file example, it needs to be mapped under /configs/config-DockerBridge.json***
-'''
+```
 {
   "bridge": {
     "name": "Name of this Bridge",
@@ -54,23 +54,30 @@ docker run -dt --name Portainer-HomeKitBridge \
     ]
   }
 }
-'''
+```
 
 
-###### Build Image Locally 
+# Build Image Locally 
 
 Git clone: 
-Enter the folder and run ```docker build --tag portainerhkb:1.0 .```
+```
+git clone https://github.com/ddmunhoz/portainerhkb
+```
+
+Enter the folder and run:
+
+```docker build --tag portainerhkb:1.0 .```
+
 Wait for docker to finish building your image.
 
 ###### Container launch CMD line
 
 ```
-docker run -dt --name YOUR_CONTAINER_NAME \
--v /path_on_your_server/YOUR_CONTAINER_NAME/config-SynoNasBridge.json:/tmp/SynoNasHKB/configs/config-SynoRouterBridge.json \
+docker run -dt --name Portainer-HomeKitBridge \
+-v /path_on_your_server/YOUR_CONTAINER_NAME/config-dockerBridge.json:/configs/config-dockerBridge.json \
 -v /path_on_your_server/YOUR_CONTAINER_NAME/accessories:/persist \
 --network host \
-portainerhkb:1.0
+munhozdiego/portainerhkb:latest
 ```
 
 
