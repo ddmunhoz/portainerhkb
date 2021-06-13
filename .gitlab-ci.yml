@@ -35,7 +35,7 @@ deploy_job_dev:
     - >
       docker run --restart always -dt --name Docker-HKB 
       -v /etc/localtime:/etc/localtime 
-      -v /payload/dockerhkb/configs/config-DockerBridge.json:/configs/config-DockerBridge.json
+      -v /payload/dockerhkb/configs/config-dockerBridge.json:/configs/config-DockerBridge.json
       -v /payload/dockerhkb/accessories:/app/persist
       --network host
       --dns 10.0.0.9
