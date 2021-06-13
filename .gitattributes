@@ -1,0 +1,4 @@
+.gitattributes merge=ours
+.gitignore merge=ours
+.gitlab-ci.yml merge=ours
+README.md merge=ours
