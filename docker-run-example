@@ -1,0 +1,5 @@
+docker run -dt --name Portainer-HomeKitBridge \
+-v /path_on_your_server/YOUR_CONTAINER_NAME/config-dockerBridge.json:/configs/config-dockerBridge.json \
+-v /path_on_your_server/YOUR_CONTAINER_NAME/accessories:/persist \
+--network host \
+munhozdiego/portainerhkb:latest
