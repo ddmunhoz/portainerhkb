@@ -3,6 +3,8 @@
 This project aims to provide a fully functional Portainer Docker Bridge that allows users to stop/start docker container
 through using Portainer API.
 
+![Alt Text](https://thumbs.gfycat.com/BetterArcticBangeltiger-size_restricted.gif)
+
 Currently it has the following features:
 
 | Feature                  | Accessory Type         | Description                                           | Status      |
