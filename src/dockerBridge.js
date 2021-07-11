@@ -60,11 +60,12 @@ async function buildContainerAccessories() {
 
         //Create accessories
         for (let key in filteredContainers) {
+            let endpointName =  endpoinst.filter(o => o.Id === filteredContainers[key].Endpoint);  
             var bridgeAcc = bridge.bridgedAccessories.filter(function (obj) {
                 return (obj.getService(Service.AccessoryInformation).getCharacteristic(Characteristic.Model).value === filteredContainers[key].Id);
             });
             if (bridgeAcc.length === 0) {
-                const dev = new containerAccessory(filteredContainers[key].Names, filteredContainers[key].Id, filteredContainers[key].Endpoint, filteredContainers[key].State);
+                const dev = new containerAccessory(filteredContainers[key].Names, filteredContainers[key].Id, filteredContainers[key].Endpoint, endpointName[0].Name, filteredContainers[key].State);
                 bridge.addBridgedAccessories({
                     accessory: dev.getAccessory()
                 });
