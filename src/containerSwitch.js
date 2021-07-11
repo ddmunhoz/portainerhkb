@@ -12,12 +12,13 @@ const Service = hap.Service;
 
 
 module.exports = class containerAccessory {
-  constructor(name, id, endpoint, state) {
+  constructor(name, id, endpoint, endpointName, state) {
     this.Switch = {
       label: name,
       name: name,
       id: id,
       endpoint: endpoint,
+      endpointName: endpointName,
       setState: async function () {
         let action = null;
         if (this.state == true) {
@@ -80,8 +81,8 @@ module.exports = class containerAccessory {
         });
       acc.getService(Service.AccessoryInformation)
         .setCharacteristic(Characteristic.Model, this.Switch.id)
-        .setCharacteristic(Characteristic.FirmwareRevision, "4.0.0");
-
+        .setCharacteristic(Characteristic.FirmwareRevision, "4.0.0")
+        .setCharacteristic(Characteristic.Manufacturer, this.Switch.endpointName);
       this.Switch.accessory = acc;
       return acc;
     } else return this.Switch.accessory;
